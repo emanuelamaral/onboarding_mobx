@@ -1,125 +1,302 @@
 import 'package:flutter/material.dart';
+import 'package:onboarding/onboarding.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  late Material materialButton;
+  late int index;
+  final onboardingPagesList = [
+    PageModel(
+      widget: DecoratedBox(
+        decoration: BoxDecoration(
+          color: background,
+          border: Border.all(
+            width: 0.0,
+            color: background,
+          ),
+        ),
+        child: SingleChildScrollView(
+          controller: ScrollController(),
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 45.0,
+                  vertical: 90.0,
+                ),
+                child: Image.network('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.0Cp63UX6HvUiCe_Qy8YHZAHaEK%26pid%3DApi&f=1&ipt=fa6f4c82073661b3f65e6e4ae7eb523ee9f56fcfbaab971bc59f53bd6f077eee&ipo=images',
+                    color: pageImageColor),
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 45.0),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'SECURED BACKUP',
+                    style: pageTitleStyle,
+                    textAlign: TextAlign.left,
+                  ),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 45.0, vertical: 10.0),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Keep your files in closed safe so you can\'t lose them. Consider TrueNAS.',
+                    style: pageInfoStyle,
+                    textAlign: TextAlign.left,
+                  ),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 45.0, vertical: 10.0),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Keep your files in closed safe so you can\'t lose them. Consider TrueNAS.',
+                    style: pageInfoStyle,
+                    textAlign: TextAlign.left,
+                  ),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 45.0, vertical: 10.0),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Keep your files in closed safe so you can\'t lose them. Consider TrueNAS.',
+                    style: pageInfoStyle,
+                    textAlign: TextAlign.left,
+                  ),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 45.0, vertical: 10.0),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Keep your files in closed safe so you can\'t lose them. Consider TrueNAS.',
+                    style: pageInfoStyle,
+                    textAlign: TextAlign.left,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    ),
+    PageModel(
+      widget: DecoratedBox(
+        decoration: BoxDecoration(
+          color: background,
+          border: Border.all(
+            width: 0.0,
+            color: background,
+          ),
+        ),
+        child: SingleChildScrollView(
+          controller: ScrollController(),
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 45.0,
+                  vertical: 90.0,
+                ),
+                child: Image.network('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.0Cp63UX6HvUiCe_Qy8YHZAHaEK%26pid%3DApi&f=1&ipt=fa6f4c82073661b3f65e6e4ae7eb523ee9f56fcfbaab971bc59f53bd6f077eee&ipo=images',
+                    color: pageImageColor),
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 45.0),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'CHANGE AND RISE',
+                    style: pageTitleStyle,
+                    textAlign: TextAlign.left,
+                  ),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 45.0, vertical: 10.0),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Give others access to any file or folders you choose',
+                    style: pageInfoStyle,
+                    textAlign: TextAlign.left,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    ),
+    PageModel(
+      widget: DecoratedBox(
+        decoration: BoxDecoration(
+          color: background,
+          border: Border.all(
+            width: 0.0,
+            color: background,
+          ),
+        ),
+        child: SingleChildScrollView(
+          controller: ScrollController(),
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 45.0,
+                  vertical: 90.0,
+                ),
+                child: Image.network('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.0Cp63UX6HvUiCe_Qy8YHZAHaEK%26pid%3DApi&f=1&ipt=fa6f4c82073661b3f65e6e4ae7eb523ee9f56fcfbaab971bc59f53bd6f077eee&ipo=images',
+                    color: pageImageColor),
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 45.0),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'EASY ACCESS',
+                    style: pageTitleStyle,
+                    textAlign: TextAlign.left,
+                  ),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 45.0, vertical: 10.0),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Reach your files anytime from any devices anywhere',
+                    style: pageInfoStyle,
+                    textAlign: TextAlign.left,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    ),
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+    materialButton = _skipButton();
+    index = 0;
+  }
+
+  Material _skipButton({void Function(int)? setIndex}) {
+    return Material(
+      borderRadius: defaultSkipButtonBorderRadius,
+      color: defaultSkipButtonColor,
+      child: InkWell(
+        borderRadius: defaultSkipButtonBorderRadius,
+        onTap: () {
+          if (setIndex != null) {
+            index = 2;
+            setIndex(2);
+          }
+        },
+        child: const Padding(
+          padding: defaultSkipButtonPadding,
+          child: Text(
+            'Skip',
+            style: defaultSkipButtonTextStyle,
+          ),
+        ),
+      ),
+    );
+  }
+
+  Material get _signupButton {
+    return Material(
+      borderRadius: defaultProceedButtonBorderRadius,
+      color: defaultProceedButtonColor,
+      child: InkWell(
+        borderRadius: defaultProceedButtonBorderRadius,
+        onTap: () {},
+        child: const Padding(
+          padding: defaultProceedButtonPadding,
+          child: Text(
+            'Sign up',
+            style: defaultProceedButtonTextStyle,
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a blue toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+      home: Scaffold(
+        body: Onboarding(
+          pages: onboardingPagesList,
+          onPageChange: (int pageIndex) {
+            index = pageIndex;
+          },
+          startPageIndex: 0,
+          footerBuilder: (context, dragDistance, pagesLength, setIndex) {
+            return DecoratedBox(
+              decoration: BoxDecoration(
+                color: background,
+                border: Border.all(
+                  width: 0.0,
+                  color: background,
+                ),
+              ),
+              child: ColoredBox(
+                color: background,
+                child: Padding(
+                  padding: const EdgeInsets.all(45.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      CustomIndicator(
+                        netDragPercent: dragDistance,
+                        pagesLength: pagesLength,
+                        indicator: Indicator(
+                          indicatorDesign: IndicatorDesign.line(
+                            lineDesign: LineDesign(
+                              lineType: DesignType.line_uniform,
+                            ),
+                          ),
+                        ),
+                      ),
+                      index == pagesLength - 1
+                          ? _signupButton
+                          : _skipButton(setIndex: setIndex)
+                    ],
+                  ),
+                ),
+              ),
+            );
+          },
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
