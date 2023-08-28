@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:onboarding_mobx/src/features/components/checkbox/checkbox.dart';
+import 'package:onboarding_mobx/src/features/presentation/register/register_page.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       appBar: AppBar(
         title: const Text('Login'),
       ),
@@ -17,9 +18,7 @@ class LoginPage extends StatelessWidget {
             padding: EdgeInsets.all(8.0),
             child: TextField(
               decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Email'
-              ),
+                  border: OutlineInputBorder(), labelText: 'Email'),
               keyboardType: TextInputType.emailAddress,
             ),
           ),
@@ -27,9 +26,7 @@ class LoginPage extends StatelessWidget {
             padding: EdgeInsets.all(8.0),
             child: TextField(
               decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Senha'
-              ),
+                  border: OutlineInputBorder(), labelText: 'Senha'),
             ),
           ),
           Padding(
@@ -41,17 +38,19 @@ class LoginPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const RegisterPage()));
+                      },
                       child: const Text(
                         'Cadastrar',
-                        style: TextStyle(
-                        fontSize: 16
-                        ),
+                        style: TextStyle(fontSize: 16),
                       ),
                     ),
                     TextButton(
                       onPressed: () {},
-                      child: const Text('Esqueci minha senha', style: TextStyle(fontSize: 16)),
+                      child: const Text('Esqueci minha senha',
+                          style: TextStyle(fontSize: 16)),
                     )
                   ],
                 ),
@@ -71,15 +70,11 @@ class LoginPage extends StatelessWidget {
                         ),
                       ),
                       child: TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          'Login', 
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.white
-                          ),
-                        )
-                      ),
+                          onPressed: () {},
+                          child: const Text(
+                            'Login',
+                            style: TextStyle(fontSize: 18, color: Colors.white),
+                          )),
                     ),
                     TextButton(
                       onPressed: () {},
