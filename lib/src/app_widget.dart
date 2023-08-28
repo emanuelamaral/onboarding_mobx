@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'features/onboard_page.dart';
+import 'features/onboard/onboard_page.dart';
 
 class AppWidget extends StatefulWidget {
   const AppWidget({Key? key}) : super(key: key);
