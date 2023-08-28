@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:onboarding/onboarding.dart';
-import 'package:onboarding_mobx/src/features/components/controllers/signup_button.dart';
-import 'package:onboarding_mobx/src/features/components/controllers/skip_button.dart';
 import 'package:onboarding_mobx/src/features/components/onboarding_pages/onboarding_page_1.dart';
-import '../app_widget.dart';
-import 'components/onboarding_pages/onboarding_page_2.dart';
-import 'components/onboarding_pages/onboarding_page_3.dart';
+import 'package:onboarding_mobx/src/features/onboard/stores/onboard_store.dart';
+import '../../app_widget.dart';
+import '../components/buttons/controllers/signup_button.dart';
+import '../components/buttons/controllers/skip_button.dart';
+import '../components/onboarding_pages/onboarding_page_2.dart';
+import '../components/onboarding_pages/onboarding_page_3.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+
+
 
 class OnboardPage extends State<AppWidget> {
   late Material materialButton;
@@ -28,8 +32,13 @@ class OnboardPage extends State<AppWidget> {
     index = 0;
   }
 
+  
+
   @override
   Widget build(BuildContext context) {
+
+    final _onboardStore = OnboardStore(onboardingPagesList: onboardingPagesList);
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
@@ -41,7 +50,10 @@ class OnboardPage extends State<AppWidget> {
         body: Onboarding(
           pages: onboardingPagesList,
           onPageChange: (int pageIndex) {
-            index = pageIndex;
+            _onboardStore.setCurrentIndex(pageIndex);
+             // setState(() {
+              //index = pageIndex;
+           //});
           },
           startPageIndex: 0,
           footerBuilder: (context, dragDistance, pagesLength, setIndex) {
@@ -71,13 +83,16 @@ class OnboardPage extends State<AppWidget> {
                           ),
                         ),
                       ),
-                      index == pagesLength - 1
-                        ? const SignupButton()
-                        : SkipButton(onTap: () {
-                            if (index < pagesLength - 1){
-                              index++;
-                              setIndex(index);
+                      Observer(
+                        builder: (_) {
+                          return _onboardStore.shouldShowSkipButton ? SkipButton(onTap: () {
+                            if (_onboardStore.currentIndex < pagesLength - 1){
+                              _onboardStore.setCurrentIndex(_onboardStore.currentIndex + 1);
+                              _onboardStore.setCurrentIndex(_onboardStore.currentIndex);
+                              setIndex(_onboardStore.currentIndex);
                             }
+                          })
+                          : const SignupButton();
                         }
                       )
                     ],
