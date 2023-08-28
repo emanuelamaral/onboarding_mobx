@@ -3,14 +3,8 @@ import 'package:onboarding/onboarding.dart';
 
 import '../../../presentation/login_page.dart';
 
-class SignupButton extends StatelessWidget {
-  const SignupButton({super.key});
-
-  // final LoginPage loginPage;
-
-  // SignupButton({
-  //   required this.loginPage
-  // });
+class SigninButton extends StatelessWidget {
+  const SigninButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,12 +14,13 @@ class SignupButton extends StatelessWidget {
       child: InkWell(
         borderRadius: defaultProceedButtonBorderRadius,
         onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context) => const LoginPage()));
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => const LoginPage()));
         },
         child: const Padding(
           padding: defaultProceedButtonPadding,
           child: Text(
-            'Cadastrar',
+            'Login',
             style: defaultProceedButtonTextStyle,
           ),
         ),
